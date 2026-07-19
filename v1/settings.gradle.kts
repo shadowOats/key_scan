@@ -1,1 +1,1 @@
-rootProject.name = "TokenScanner"
+rootProject.name = "KeyScan"

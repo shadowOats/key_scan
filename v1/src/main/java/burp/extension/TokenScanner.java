@@ -33,7 +33,7 @@ public class TokenScanner implements BurpExtension {
     @Override
     public void initialize(MontoyaApi montoyaApi) {
         this.api = montoyaApi;
-        api.extension().setName("Token Scanner");
+        api.extension().setName("Key Scan");
 
         // 注册请求处理器
         api.proxy().registerRequestHandler(new ProxyRequestHandler() {
@@ -272,14 +272,14 @@ public class TokenScanner implements BurpExtension {
         blinkTimer = new Timer(400, e -> {
             blinkCount++;
             if (blinkCount % 2 == 0) {
-                highlightTab("Token Scanner", Color.YELLOW);
+                highlightTab("Key Scan", Color.YELLOW);
             } else {
-                resetTabColor("Token Scanner");
+                resetTabColor("Key Scan");
             }
 
             if (blinkCount >= 10) { // 闪烁4秒后停止，恢复原色
                 blinkTimer.stop();
-                resetTabColor("Token Scanner");
+                resetTabColor("Key Scan");
             }
         });
         blinkTimer.setInitialDelay(0);
@@ -328,7 +328,7 @@ public class TokenScanner implements BurpExtension {
             statusLabel.setText("Found: 0 tokens");
             alertLabel.setVisible(false);
             hasNewFindings = false;
-            resetTabColor("Token Scanner");
+            resetTabColor("Key Scan");
         });
         popupMenu.add(copyItem);
         popupMenu.addSeparator();
@@ -361,14 +361,14 @@ public class TokenScanner implements BurpExtension {
             statusLabel.setText("Found: 0 tokens");
             alertLabel.setVisible(false);
             hasNewFindings = false;
-            resetTabColor("Token Scanner");
+            resetTabColor("Key Scan");
         });
         bottomPanel.add(clearBtn);
 
         mainPanel.add(bottomPanel, BorderLayout.SOUTH);
 
         // 注册Tab
-        api.userInterface().registerSuiteTab("Token Scanner", mainPanel);
+        api.userInterface().registerSuiteTab("Key Scan", mainPanel);
     }
 
     /**

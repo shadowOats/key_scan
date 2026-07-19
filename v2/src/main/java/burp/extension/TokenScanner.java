@@ -53,7 +53,7 @@ public class TokenScanner implements BurpExtension {
     @Override
     public void initialize(MontoyaApi montoyaApi) {
         this.api = montoyaApi;
-        api.extension().setName("Token Scanner");
+        api.extension().setName("Key Scan");
 
         // 注册请求处理器
         api.proxy().registerRequestHandler(new ProxyRequestHandler() {
@@ -289,14 +289,14 @@ public class TokenScanner implements BurpExtension {
         blinkTimer = new Timer(400, e -> {
             blinkCount++;
             if (blinkCount % 2 == 0) {
-                highlightTab("Token Scanner", Color.YELLOW);
+                highlightTab("Key Scan", Color.YELLOW);
             } else {
-                resetTabColor("Token Scanner");
+                resetTabColor("Key Scan");
             }
 
             if (blinkCount >= 10) {
                 blinkTimer.stop();
-                resetTabColor("Token Scanner");
+                resetTabColor("Key Scan");
             }
         });
         blinkTimer.setInitialDelay(0);
@@ -313,7 +313,7 @@ public class TokenScanner implements BurpExtension {
         mainTabbedPane.addTab("Settings", createSettingsPanel());
 
         // 注册Tab
-        api.userInterface().registerSuiteTab("Token Scanner", mainTabbedPane);
+        api.userInterface().registerSuiteTab("Key Scan", mainTabbedPane);
     }
 
     /**
@@ -381,7 +381,7 @@ public class TokenScanner implements BurpExtension {
             idCounter.set(0);
             statusLabel.setText("Found: 0 tokens");
             alertLabel.setVisible(false);
-            resetTabColor("Token Scanner");
+            resetTabColor("Key Scan");
             clearEditors();
         });
         popupMenu.add(copyUrl);
@@ -444,7 +444,7 @@ public class TokenScanner implements BurpExtension {
             idCounter.set(0);
             statusLabel.setText("Found: 0 tokens");
             alertLabel.setVisible(false);
-            resetTabColor("Token Scanner");
+            resetTabColor("Key Scan");
             clearEditors();
         });
         bottomPanel.add(clearBtn);

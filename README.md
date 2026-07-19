@@ -1,4 +1,4 @@
-# Token Scanner - Burp Suite Extension
+# Key Scan - Burp Suite Extension
 
 一个用于检测HTTP请求/响应中敏感关键字的Burp Suite扩展。
 
@@ -14,13 +14,13 @@
 ## 项目结构
 
 ```
-敏感信息扫描/
+key_scan/
 ├── v1/                     # 基础版
 │   ├── src/main/java/
-│   └── build/libs/TokenScanner-1.0.jar
+│   └── build/libs/KeyScan-1.0.jar
 ├── v2/                     # 完整版（推荐）
 │   ├── src/main/java/
-│   └── build/libs/TokenScanner-1.0.jar
+│   └── build/libs/KeyScan-1.0.jar
 └── README.md
 ```
 
@@ -44,7 +44,7 @@ gradlew.bat clean jar
 ./gradlew clean jar
 ```
 
-编译完成后，JAR文件位于：`build/libs/TokenScanner-1.0.jar`
+编译完成后，JAR文件位于：`build/libs/KeyScan-1.0.jar`
 
 ### 方法二：使用全局Gradle
 
@@ -70,7 +70,7 @@ gradle clean jar
 2. 进入 `Extensions > Installed`
 3. 点击 `Add`
 4. 选择 `Extension type: Java`
-5. 选择编译好的 `TokenScanner-1.0.jar`
+5. 选择编译好的 `KeyScan-1.0.jar`
 6. 点击 `Next > Close`
 
 ## 使用说明
